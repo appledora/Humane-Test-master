@@ -84,12 +84,13 @@ public class DonatorProfile extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.logout:
+                        auth.signOut();
                         Intent intent = new Intent(DonatorProfile.this,loginActivity.class);
                         startActivity(intent);
                     case R.id.profile:
-                        Toast.makeText(DonatorProfile.this,"HOME",Toast.LENGTH_SHORT);
+                        Toast.makeText(DonatorProfile.this,"HOME",Toast.LENGTH_SHORT).show();
                     case R.id.badges:
-                        Toast.makeText(DonatorProfile.this,"ACHIEVEMENT",Toast.LENGTH_SHORT);
+                        Toast.makeText(DonatorProfile.this,"ACHIEVEMENT",Toast.LENGTH_SHORT).show();
                 }
                 return true;
             }
