@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.siyamed:android-shape-imageview-0.9.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-shape-imageview-0.9.3.aar/156e66b37c16e346b67ca71e8409c7a4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-shape-imageview-0.9.3.aar/156e66b37c16e346b67ca71e8409c7a4/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.siyamed/android-shape-imageview/0.9.3/486b943a1ffa8fbbc95ec98e6587bc2ccd9f1e67/android-shape-imageview-0.9.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
