@@ -2688,8 +2688,8 @@
         <item>@font/roboto_thin</item>
     </array></file><file path="N:\Humane-Test-master\Humane-Test-master\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">Humane_1.0</string><string name="dash_u">User Dashboard</string><string name="dash_o">Organization Dashboard</string><string name="dash_v">Volunteer Dashboard</string><string name="userdash">User Dashboard</string><string name="user_nav_title">User DashBoard</string><string name="title_activity_start_screen">StartScreen</string><string name="logout">LogOut</string><string name="password">Password</string><string name="sign_in">Sign In</string><string name="click_to_register">Click to Register</string></file><file path="N:\Humane-Test-master\Humane-Test-master\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorBegun</item>
+        <item name="colorPrimaryDark">@color/colorPeyaj</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style><style name="userTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
