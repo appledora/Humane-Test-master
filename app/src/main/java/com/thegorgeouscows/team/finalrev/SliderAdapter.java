@@ -1,8 +1,8 @@
 package com.thegorgeouscows.team.finalrev;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class SliderAdapter extends PagerAdapter {
 
@@ -80,13 +79,16 @@ public class SliderAdapter extends PagerAdapter {
         pressButton.setOnClickListener(new View.OnClickListener(){
             public void onClick (View v) {
                 if (position == 0) {
-                    Log.i("my","FOOOD");
+                    Intent readMore = new Intent(v.getContext(), FoodPostForm.class);
+                    v.getContext().startActivity(readMore);
                 }
                 else if (position == 1) {
-                    Log.i("my","CLOOTH");
+                    Intent readMore = new Intent(v.getContext(), blood_donation_post.class);
+                    v.getContext().startActivity(readMore);
                                   }
                 else if(position == 2) {
-                    Log.i("my","BLOOOOD");
+                    Intent readMore = new Intent(v.getContext(), blood_donation_post.class);
+                    v.getContext().startActivity(readMore);
                                    }
 
             }

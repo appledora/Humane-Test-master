@@ -1,11 +1,15 @@
 #Internal package file, do not edit.
-#Fri Oct 19 23:32:15 BDT 2018
+#Tue Dec 25 17:20:23 BDT 2018
 1.base=N\:\\Humane-Test-master\\Humane-Test-master\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+2.path=classes2.dex
 0.baseType=DIRECTORY
+2.base=N\:\\Humane-Test-master\\Humane-Test-master\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+2.set=DEX
 1.baseType=DIRECTORY
-count=2
+count=3
 1.set=DEX
 0.path=classes.dex
 0.set=DEX
 0.base=N\:\\Humane-Test-master\\Humane-Test-master\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+2.baseType=DIRECTORY
 1.path=classes.dex

@@ -81,6 +81,7 @@ public class registerDonatorActivity extends AppCompatActivity {
                         currentuserdata.child("Name").setValue(name);
                         currentuserdata.child("Email").setValue(email);
                         currentuserdata.child("Image").setValue("image");
+                        currentuserdata.child("ID").setValue("Donator");
 
                         mProgress.dismiss();
 

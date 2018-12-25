@@ -87,10 +87,12 @@ public class DonatorProfile extends AppCompatActivity {
                         auth.signOut();
                         Intent intent = new Intent(DonatorProfile.this,loginActivity.class);
                         startActivity(intent);
-                    case R.id.profile:
+                    case R.id.current_profile:
                         Toast.makeText(DonatorProfile.this,"HOME",Toast.LENGTH_SHORT).show();
-                    case R.id.badges:
-                        Toast.makeText(DonatorProfile.this,"ACHIEVEMENT",Toast.LENGTH_SHORT).show();
+                    case R.id.feed:
+                        Log.i("my","Badges clicked");
+                       Intent i = new Intent(DonatorProfile.this,FeedBase.class);
+                        startActivity(i);
                 }
                 return true;
             }

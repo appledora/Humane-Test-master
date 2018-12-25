@@ -3,6 +3,9 @@
     package="com.thegorgeouscows.team.finalrev">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/splashlogo"
@@ -10,7 +13,8 @@
         android:roundIcon="@mipmap/splashlogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,19 +23,29 @@
             </intent-filter>
         </activity>
         <activity android:name=".registerDonatorActivity" />
+        <activity android:name=".blood_donation_post" />
         <activity android:name=".generalPage" />
         <activity android:name=".LandingActivity" />
         <activity android:name=".registerVolunteerActivity" />
         <activity android:name=".registerOrganizationActivity" />
-        <activity android:name=".loginActivity"/>
-        <activity android:name=".DonatorProfile"
-            android:theme="@style/donatorProfileTheme"/>
-        <activity android:name=".SlideActivity"
-            android:theme="@style/slideTheme"/>
+        <activity android:name=".loginActivity" />
+        <activity
+            android:name=".DonatorProfile"
+            android:theme="@style/donatorProfileTheme" />
+        <activity android:name=".OrganizationProfile" />
+        <activity
+            android:name=".SlideActivity"
+            android:theme="@style/slideTheme" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".FoodPostForm" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".FeedBase"></activity>
     </application>
 
 </manifest>

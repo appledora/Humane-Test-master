@@ -10,9 +10,16 @@ import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class OrganizationProfile extends AppCompatActivity {
@@ -20,7 +27,12 @@ public class OrganizationProfile extends AppCompatActivity {
     private CardView pendingVerification;
     private CardView availableTasks;
     private CardView volunteerList;
+    private TextView name ;
+
     FirebaseAuth auth;
+    FirebaseUser user;
+    DatabaseReference ref;
+    String uid;
 
 
     @Override
@@ -31,9 +43,26 @@ public class OrganizationProfile extends AppCompatActivity {
         pendingVerification = (CardView) findViewById(R.id.pending);
         availableTasks = (CardView)findViewById(R.id.available);
         volunteerList = (CardView)findViewById(R.id.volunteer);
+        name = (TextView)findViewById(R.id.name_display);
+
         auth = FirebaseAuth.getInstance();
+        uid = auth.getCurrentUser().getUid();
+        ref = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
 
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String nm = dataSnapshot.child("Name").getValue().toString();
+                    name.setText(nm);
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         pendingVerification.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +89,7 @@ public class OrganizationProfile extends AppCompatActivity {
             }
         });
 
+        setupBottomNavigationView();
 
     }
 
@@ -73,9 +103,9 @@ public class OrganizationProfile extends AppCompatActivity {
                         auth.signOut();
                         Intent intent = new Intent(OrganizationProfile.this,loginActivity.class);
                         startActivity(intent);
-                    case R.id.profile:
+                    case R.id.current_profile:
                         Toast.makeText(OrganizationProfile.this,"HOME",Toast.LENGTH_SHORT).show();
-                    case R.id.badges:
+                    case R.id.feed:
                         Toast.makeText(OrganizationProfile.this,"ACHIEVEMENT",Toast.LENGTH_SHORT).show();
                 }
                 return true;

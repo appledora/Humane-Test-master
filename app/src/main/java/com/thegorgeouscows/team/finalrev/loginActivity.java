@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class
 loginActivity extends AppCompatActivity {
@@ -25,7 +31,10 @@ loginActivity extends AppCompatActivity {
     private Button mLoginButton;
     private Button mRegisterButton;
 
-    private FirebaseAuth mAuth;
+    private DatabaseReference ref;
+    FirebaseAuth mAuth;
+    String uid;
+    public String tag,mag;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
 
@@ -44,7 +53,7 @@ loginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        mAuthListener= new FirebaseAuth.AuthStateListener() {
+      mAuthListener= new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
@@ -92,8 +101,33 @@ loginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Intent intent = new Intent(loginActivity.this, DonatorProfile.class);
-                        startActivity(intent);
+                        uid = mAuth.getCurrentUser().getUid();
+                        ref = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
+
+                        ref.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if (dataSnapshot.exists()){
+                                    tag = dataSnapshot.child("ID").getValue().toString();
+                                    Log.i("my", tag);
+
+                                    if(tag.equals("Organization")){
+                                        Intent intent = new Intent(loginActivity.this, OrganizationProfile.class);
+                                        startActivity(intent);
+                                    }
+                                    else if (tag.equals("Donator")) {
+                                        Intent intent = new Intent(loginActivity.this, DonatorProfile.class);
+                                        startActivity(intent);
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
                     } else
                         Toast.makeText(loginActivity.this, "Error", Toast.LENGTH_LONG).show();
                 }

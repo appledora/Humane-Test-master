@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design-shape-28.0.0-alpha1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-shape-28.0.0-alpha1.aar/71d1bb9fbadde3265d22caa777233feb/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-shape-28.0.0-alpha1.aar/71d1bb9fbadde3265d22caa777233feb/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-shape-28.0.0-alpha1.aar/0fbd5f3ee65bc6cc28a7d8ea43373ad4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-shape-28.0.0-alpha1.aar/0fbd5f3ee65bc6cc28a7d8ea43373ad4/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
