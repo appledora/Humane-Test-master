@@ -26,13 +26,16 @@
                 android:background="@drawable/gradientbg"
                 android:orientation="vertical">
 
-                <com.github.siyamed.shapeimageview.CircularImageView
-                    android:id="@+id/dp"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/main_dp"
                     android:layout_width="200dp"
-                    android:layout_height="100dp"
+                    android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="35dp"
-                    android:src="@drawable/person" />
+                    android:src="@drawable/person"
+                    app:civ_border="false"
+                    app:civ_shadow="true" />
+
 
                 <TextView
                     android:id="@+id/name_display"

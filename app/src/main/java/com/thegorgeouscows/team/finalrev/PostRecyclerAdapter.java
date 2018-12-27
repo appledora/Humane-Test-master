@@ -16,6 +16,8 @@ import com.bumptech.glide.Glide;
 import java.util.Date;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder> {
     public List<Posts>posts_lists;
     public PostRecyclerAdapter(List<Posts>posts_list){
@@ -27,7 +29,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.i("my","inside Viewholder of Adapter");
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_list_items,parent,false);
         context = parent.getContext();
         return new ViewHolder(view);
@@ -38,12 +40,14 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
         String user_id = posts_lists.get(position).getUserid();
         String pickup_address = posts_lists.get(position).getAddress();
         String image_url = posts_lists.get(position).getImage_url();
+        String profile_photo = posts_lists.get(position).getProfilePhoto();
         long millisec = posts_lists.get(position).getTimestamp().getTime();
         String dateString = DateFormat.format("MM/dd/yyyy", new Date(millisec)).toString();        //Log.i("my","recieved address: "+user_id);
         holder.setName(user_id);
         holder.setAddress(pickup_address);
         holder.setBlogImage(image_url);
         holder.setTime(dateString);
+        holder.setProfilePhoto(profile_photo);
     }
 
     @Override
@@ -56,6 +60,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
         private TextView addressText,postDate;
         private View mView;
         private ImageView blogImage;
+        private CircleImageView blogphoto;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -64,17 +69,17 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
         }
 
         public void setName(String text){
-            Log.i("my","set Text = "+text);
+
             addressText = mView.findViewById(R.id.blog_user_name);
             addressText.setText(text);
         }
         public void setAddress(String text){
-            Log.i("my","set Text = "+text);
+
             addressText = mView.findViewById(R.id.location);
             addressText.setText(text);
         }
        public void setTime(String text){
-            Log.i("my","set Text = "+text);
+
             postDate = mView.findViewById(R.id.blog_date);
             postDate.setText(text);
         }
@@ -84,11 +89,10 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
             Glide.with(context).load(downloadUri).into(blogImage);
         }
 
-        /* public void setAddress(String text){
-            Log.i("my","set Text = "+text);
-            addressText = mView.findViewById(R.id.blog_user_name);
-            addressText.setText(text);
+
+        public void setProfilePhoto(String profile_photo) {
+            blogphoto = mView.findViewById(R.id.blog_user_image);
+            Glide.with(context).load(profile_photo).into(blogphoto);
         }
-*/
     }
 }

@@ -34,17 +34,17 @@ public class FeedBase extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_base);
-        Log.i("my","REACHED FEEDBASE");
+
 
         mAuth = FirebaseAuth.getInstance();
-        Log.i("my","got mAuth");
+
 
         if(mAuth.getCurrentUser() != null){
-            Log.i("my","CURRENT USER CHECKED");
+
             mainbottomNav = findViewById(R.id.mainBottomNav);
             feedFragment = new FeedFragment();
             transaction = getSupportFragmentManager().beginTransaction();
-            Log.i("my","clicked badges");
+
             transaction.replace(R.id.main_container,feedFragment);
             transaction.commit();
 
@@ -55,9 +55,8 @@ public class FeedBase extends AppCompatActivity {
 
                     switch(item.getItemId()){
                         case R.id.home:
-                            Log.i("my","clicked Profile");
-                           /* transaction.replace(R.id.main_container,feedFragment);
-                            transaction.commit();*/
+
+
                             return true;
                         case R.id.user_profile:
                             Intent i = new Intent(FeedBase.this,DonatorProfile.class);

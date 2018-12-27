@@ -54,7 +54,7 @@ public class FoodPostForm extends AppCompatActivity implements View.OnClickListe
     private FirebaseFirestore firebaseFirestore;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference ref;
-    private String currentUserID,nm;
+    private String currentUserID,nm,photoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +86,7 @@ public class FoodPostForm extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
                      nm = dataSnapshot.child("Name").getValue().toString();
+                     photoUri = dataSnapshot.child("Image").getValue().toString();
                 }
             }
 
@@ -191,6 +192,7 @@ public class FoodPostForm extends AppCompatActivity implements View.OnClickListe
                     postMap.put("contact",cont);
                     postMap.put("userid",nm);
                     postMap.put("timestamp", FieldValue.serverTimestamp());
+                    postMap.put("profilePhoto",photoUri);
 
 
                     firebaseFirestore.collection("POSTS").add(postMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
@@ -215,7 +217,6 @@ public class FoodPostForm extends AppCompatActivity implements View.OnClickListe
 
         if(requestCode == GALLERY_REQUEST && resultCode == RESULT_OK){
             imageUri = data.getData();
-            //selectPhoto.setImageURI(imageUri);
             CropImage.activity(imageUri)
                     .setGuidelines(CropImageView.Guidelines.ON)
                     .setAspectRatio(1,1)

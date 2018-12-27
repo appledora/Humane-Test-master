@@ -24,7 +24,7 @@
 
     <EditText
         android:id="@+id/entryName"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
@@ -43,7 +43,7 @@
 
     <EditText
         android:id="@+id/entryEmail"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -61,7 +61,7 @@
 
     <EditText
         android:id="@+id/entryPassword"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="51dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -75,4 +75,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/entryEmail" />
+
 </android.support.constraint.ConstraintLayout>

@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import java.util.Date;
 
 public class Posts {
-    private String productiondate,expirationdate,userid,address,contact,imageurl,quantity;
+    private String productiondate,expirationdate,userid,address,contact,imageurl,quantity,profilePhoto;
     private Date timestamp;
 
 
-    public Posts(String user_name, String production_date, String expiration_date, String pickup_address, String contact, String image_url, String quantity,Date timestamp){
+    public Posts(String user_name, String production_date, String expiration_date, String pickup_address, String contact, String image_url, String quantity,Date timestamp,String profilePhoto){
         this.userid = user_name;
         Log.i("my","got User name from model: "+user_name);
         this.productiondate = production_date;
@@ -26,10 +26,17 @@ public class Posts {
         this.quantity = quantity;
         Log.i("my","got from model: "+quantity);
         this.timestamp = timestamp;
+        this.profilePhoto= profilePhoto;
 
     }
 
+    public String getProfilePhoto() {
+        return profilePhoto;
+    }
 
+    public void setProfilePhoto(String profilePhoto) {
+        this.profilePhoto = profilePhoto;
+    }
 
     public Posts(){
 
